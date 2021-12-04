@@ -15,6 +15,10 @@
 					<td>${result.id}</td>
 				</tr>
 				<tr>
+					<td>Category</td>
+					<td>${result.category.name}</td>
+				</tr>
+				<tr>
 					<td>Title</td>
 					<td>${result.title}</td>
 				</tr>
@@ -55,8 +59,13 @@
 					<td>${result.specialFeatures}</td>
 				</tr>
 				<tr>
-				    <td><a href="delete?id=${result.id}">Delete</a></td>
-				    <td></td>
+					<td>Actors</td>
+					<td>${result.getActorsString()}</td>
+				</tr>
+				<tr>
+					<td><a href="delete?id=${result.id}">Delete</a></td>
+					<td></td>
+				</tr>
 			</tbody>
 		</table>
 		<hr>
@@ -66,6 +75,7 @@
 			<thead>
 				<tr>
 					<th>ID</th>
+					<th>Category</th>
 					<th>Title</th>
 					<th>Description</th>
 					<th>Release Year</th>
@@ -76,12 +86,15 @@
 					<th>Replacement Cost</th>
 					<th>Rating</th>
 					<th>Special Features</th>
+					<th>Actors</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach items="${results}" var="result">
 					<tr>
 						<td>${result.id}</td>
+						<td>${result.category.name}</td>
 						<td>${result.title}</td>
 						<td>${result.description}</td>
 						<td>${result.releaseYear}</td>
@@ -92,6 +105,7 @@
 						<td>${result.replacementCost}</td>
 						<td>${result.rating}</td>
 						<td>${result.specialFeatures}</td>
+						<td>${result.getActorsString()}</td>
 						<td><a href="delete?id=${result.id}">Delete</a>
 				</c:forEach>
 			</tbody>

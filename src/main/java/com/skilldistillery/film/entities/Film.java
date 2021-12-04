@@ -1,6 +1,5 @@
 package com.skilldistillery.film.entities;
 
-import java.sql.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -19,6 +18,18 @@ public class Film {
 	private String specialFeatures;
 	private List<Actor> actors;
 	private Category category;
+
+	public String getActorsString() {
+		if (actors != null) {
+			String[] names = new String[actors.size()];
+			for (int i = 0; i < names.length; i++) {
+				Actor actor = actors.get(i);
+				names[i] = actor.getFirstName() + " " + actor.getLastName();
+			}
+			return String.join(", ", names);
+		}
+		return null;
+	}
 
 	public List<Actor> getActors() {
 		return actors;
