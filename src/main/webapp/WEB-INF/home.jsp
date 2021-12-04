@@ -112,14 +112,14 @@
 	</thead>
 	<tbody>
 		<tr>
-			<form action="/search" method="post">
+			<form action="search" method="post">
 				<td>Search by ID</td>
 				<td><input name="id" type="number" /></td>
 				<td><input type="submit" /></td>
 			</form>
 		</tr>
 		<tr>
-			<form action="/search" method="post">
+			<form action="search" method="post">
 				<td>Search by Keyword</td>
 				<td><input name="keyword" type="text" /></td>
 				<td><input type="submit" /></td>
@@ -139,7 +139,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		<form action="/create" method="get">
+		<form action="create" method="get">
 		<tr>
 			<td>Title</td>
 			<td><input name="title" /></td>
