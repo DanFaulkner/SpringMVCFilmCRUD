@@ -23,31 +23,34 @@ public class FilmController {
 
 	@GetMapping("/")
 	public String index(Model model) {
-		model.addAttribute("message", "I'm ALIVE!");
 		return "home";
 	}
 
-	@PostMapping("/search")
+	@PostMapping("/")
 	public String search(Model model, @RequestParam(name = "id", required = false, defaultValue = "-1") int id,
-			@RequestParam(name = "keyword", required = false) String keyword) throws SQLException {
-		if (id > 0) {
-			Film film = dao.getFilmById(id);
-			model.addAttribute("result", film);
+			@RequestParam(name = "keyword", required = false) String keyword) {
+		try {
+			if (id > 0) {
+				Film film = dao.getFilmById(id);
+				model.addAttribute("result", film);
 
-			if (film == null) {
-				model.addAttribute("message", String.format("Film with id `%d` not found.", id));
-			}
-		} else if (keyword != null) {
-			List<Film> films = dao.getFilmByKeyword(keyword);
-			model.addAttribute("results", films);
+				if (film == null) {
+					model.addAttribute("warning", String.format("Film with id `%d` not found.", id));
+				}
+			} else if (keyword != null) {
+				List<Film> films = dao.getFilmByKeyword(keyword);
+				model.addAttribute("results", films);
 
-			if (films != null) {
-				model.addAttribute("message", String.format("There were %d results found.", films.size()));
+				if (films != null) {
+					model.addAttribute("success", String.format("There were %d results found.", films.size()));
+				} else {
+					model.addAttribute("warning", "There were no results found.");
+				}
 			} else {
-				model.addAttribute("message", "There were no results found.");
+				model.addAttribute("error", "Invalid search");
 			}
-		} else {
-			model.addAttribute("message", "Invalid search");
+		} catch (Exception e) {
+			model.addAttribute("error", e.getMessage());
 		}
 		return "home";
 	}
