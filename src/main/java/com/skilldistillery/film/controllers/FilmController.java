@@ -61,12 +61,13 @@ public class FilmController {
 		try {
 			if (dao.createFilm(film)) {
 				// dao.createFilm should populate film.id for us
+				redir.addFlashAttribute("success", "Film successfully created!");
 				return "redirect:/search?id=" + film.getId();
 			} else {
 				throw new Exception("Failed to create film.");
 			}
 		} catch (Exception e) {
-			redir.addFlashAttribute("error", e.getMessage());
+			redir.addFlashAttribute("error", e.getMessage() + ": " + film.toString());
 			e.printStackTrace();
 		}
 		return "redirect:/";

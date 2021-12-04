@@ -87,19 +87,19 @@
 											</tr>
 											<tr>
 												<td>Rental Duration</td>
-												<td><input name="rentalDuration" type="number" placeholder="0" /></td>
+												<td><input name="rentalDuration" type="number" value="0" /></td>
 											</tr>
 											<tr>
 												<td>Rental Rate</td>
-												<td><input name="rentalRate" type="number" placeholder="0.00" /></td>
+												<td><input name="rentalRate" type="number" value="0.00" /></td>
 											</tr>
 											<tr>
 												<td>Length</td>
-												<td><input name="length" type="number" placeholder="0" /></td>
+												<td><input name="length" type="number" value="0" /></td>
 											</tr>
 											<tr>
 												<td>Replacement Cost</td>
-												<td><input name="replacementCost" type="number" placeholder="0.00" /></td>
+												<td><input name="replacementCost" type="number" value="0.00" /></td>
 											</tr>
 											<tr>
 												<td>Rating</td>
