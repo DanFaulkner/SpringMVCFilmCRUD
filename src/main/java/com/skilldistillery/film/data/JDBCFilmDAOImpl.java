@@ -66,10 +66,16 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 		return true;
 	}
 
-	// category and actor info to select statement and set them
 	@Override
 	public Film getFilmById(int filmId) throws SQLException {
-		String sql = "SELECT language.id as 'language_id', language.name as 'language_name', film.id, film.title, film.description, film.release_year, language.name, film.rental_duration, film.rental_rate, film.length, film.replacement_cost, film.rating, film.special_features, cat.name as 'category_name', cat.id as 'category_id' FROM film JOIN language ON film.language_id = language.id  JOIN film_category catt ON film.id = catt.film_id JOIN category cat ON catt.category_id = cat.id WHERE film.id = ?";
+		String sql = "SELECT " //
+				+ "film.*, " //
+				+ "l.id as 'language_id', l.name as 'language_name', " //
+				+ "c.id as 'category_id', c.name as 'category_name', " //
+				+ "FROM film " //
+				+ "JOIN language l ON film.language_id = l.id  " //
+				+ "JOIN film_category fc ON film.id = fc.film_id " //
+				+ "JOIN category c ON fc.category_id = c.id WHERE film.id = ?"; //
 
 		try (Connection conn = DriverManager.getConnection(URL, user, pass);
 				PreparedStatement stmt = conn.prepareStatement(sql)) {
