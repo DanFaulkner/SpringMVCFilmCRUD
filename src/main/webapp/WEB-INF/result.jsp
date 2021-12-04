@@ -8,15 +8,6 @@
 </h1>
 
 <c:choose>
-	<c:when test="${value != null }">
-		<h1>Test value: ${ value }</h1>
-	</c:when>
-	<c:otherwise>
-		<h1>No test value</h1>
-	</c:otherwise>
-</c:choose>
-
-<c:choose>
 	<c:when test="${result != null }">
 		<table>
 			<thead>
@@ -57,11 +48,11 @@
 						<td>${result.title}</td>
 						<td>${result.description}</td>
 						<td>${result.releaseYear}</td>
-						<td>${result.languiage}</td>
+						<td>${result.language.name}</td>
 						<td>${result.rentalDuration}</td>
-						<td><fmt:formatNumber type="currency" value="${result.rentalRate}" /></td>
+						<td>${result.rentalRate}</td>
 						<td>${result.length}</td>
-						<td><fmt:formatNumber type="currency" value="${result.replacementCost}" /></td>
+						<td>${result.replacementCost}</td>
 						<td>${result.rating}</td>
 						<td>${result.specialFeatures}</td>
 				</c:forEach>
