@@ -73,9 +73,11 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 				+ "l.id as 'language_id', l.name as 'language_name', " //
 				+ "c.id as 'category_id', c.name as 'category_name' " //
 				+ "FROM film " //
-				+ "LEFT JOIN language l ON film.language_id = l.id  " //
-				+ "LEFT JOIN film_category fc ON film.id = fc.film_id " //
-				+ "LEFT JOIN category c ON fc.category_id = c.id WHERE film.id = ?"; //
+				+ "JOIN language l ON film.language_id = l.id  " //
+				+ "JOIN film_category fc ON film.id = fc.film_id " //
+				+ "JOIN category c ON fc.category_id = c.id " //
+				+ "WHERE film.id = ?";
+
 
 		try (Connection conn = DriverManager.getConnection(URL, user, pass);
 				PreparedStatement stmt = conn.prepareStatement(sql)) {
