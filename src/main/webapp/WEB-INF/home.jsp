@@ -20,21 +20,21 @@
 							<table id="search-by" class="table">
 								<thead>
 									<tr>
-										<th>By</th>
+										<th>Field</th>
 										<th>Value</th>
 										<th></th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr>
-										<form method="post">
-										<td>ID</td>
-										<td><input name="id" type="number" /></td>
-										<td><input type="submit" /></td>
+										<form action="search">
+											<td>ID</td>
+											<td><input name="id" type="number" /></td>
+											<td><input type="submit" /></td>
 										</form>
 									</tr>
 									<tr>
-										<form method="post">
+										<form action="search">
 											<td>Keyword</td>
 											<td><input name="keyword" type="text" /></td>
 											<td><input type="submit" /></td>
@@ -56,30 +56,27 @@
 								<table id="create-film" class="table">
 									<thead>
 										<tr>
-											<th colspan="2">Create Film</th>
-										</tr>
-										<tr>
 											<th>Field</th>
 											<th>Value</th>
 										</tr>
 									</thead>
 									<tbody>
-										<form action="create" method="get">
+										<form action="create" method="post">
 											<tr>
 												<td>Title</td>
 												<td><input name="title" /></td>
 											</tr>
 											<tr>
 												<td>Description</td>
-												<td><input name="desc" /></td>
+												<td><input name="description" /></td>
 											</tr>
 											<tr>
 												<td>Release Year</td>
-												<td><input name="release_year" type="date" /></td>
+												<td><input name="releaseYear" type="date" /></td>
 											</tr>
 											<tr>
 												<td>Language</td>
-												<td><select name="language">
+												<td><select name="language.id">
 														<option value="1">English</option>
 														<option value="2">Italian</option>
 														<option value="3">Japanese</option>
@@ -90,11 +87,11 @@
 											</tr>
 											<tr>
 												<td>Rental Duration</td>
-												<td><input name="rental_duration" type="number" placeholder="0" /></td>
+												<td><input name="rentalDuration" type="number" placeholder="0" /></td>
 											</tr>
 											<tr>
 												<td>Rental Rate</td>
-												<td><input name="rental_rate" type="number" placeholder="0.00" /></td>
+												<td><input name="rentalRate" type="number" placeholder="0.00" /></td>
 											</tr>
 											<tr>
 												<td>Length</td>
@@ -102,7 +99,7 @@
 											</tr>
 											<tr>
 												<td>Replacement Cost</td>
-												<td><input name="replacement_cost" type="number" placeholder="0.00" /></td>
+												<td><input name="replacementCost" type="number" placeholder="0.00" /></td>
 											</tr>
 											<tr>
 												<td>Rating</td>
@@ -118,20 +115,41 @@
 												<td>Special Features</td>
 												<td>
 													<div>
-														<label><input type="checkbox" name="special_features[]" value="Trailers">Trailers</label>
+														<label><input type="checkbox" name="specialFeatures[]" value="Trailers">Trailers</label>
 													</div>
 													<div>
-														<label><input type="checkbox" name="special_features[]" value="Commentaries">Commentaries</label>
+														<label><input type="checkbox" name="specialFeatures[]" value="Commentaries">Commentaries</label>
 													</div>
 													<div>
-														<label><input type="checkbox" name="special_features[]" value="Deleted Scenes">Deleted
+														<label><input type="checkbox" name="specialFeatures[]" value="Deleted Scenes">Deleted
 															Scenes</label>
 													</div>
 													<div>
-														<label><input type="checkbox" name="special_features[]" value="Behind the Scenes">Behind
+														<label><input type="checkbox" name="specialFeatures[]" value="Behind the Scenes">Behind
 															the Scenes</label>
 													</div>
 												</td>
+											</tr>
+											<tr>
+												<td>Category</td>
+												<td><select name="category.id">
+														<option value="1">Action</option>
+														<option value="2">Animation</option>
+														<option value="3">Children</option>
+														<option value="4">Classics</option>
+														<option value="5">Comedy</option>
+														<option value="6">Documentary</option>
+														<option value="7">Drama</option>
+														<option value="8">Family</option>
+														<option value="9">Foreign</option>
+														<option value="10">Games</option>
+														<option value="11">Horror</option>
+														<option value="12">Music</option>
+														<option value="13">New</option>
+														<option value="14">Sci-Fi</option>
+														<option value="15">Sports</option>
+														<option value="16">Travel</option>
+												</select></td>
 											</tr>
 											<tr>
 												<td colspan="2"><input type="submit" /></td>

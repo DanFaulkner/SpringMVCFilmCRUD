@@ -3,14 +3,14 @@ package com.skilldistillery.film.controllers;
 import java.sql.SQLException;
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.film.data.FilmDAO;
 import com.skilldistillery.film.entities.Film;
@@ -26,7 +26,7 @@ public class FilmController {
 		return "home";
 	}
 
-	@PostMapping("/")
+	@GetMapping("/search")
 	public String search(Model model, @RequestParam(name = "id", required = false, defaultValue = "-1") int id,
 			@RequestParam(name = "keyword", required = false) String keyword) {
 		try {
@@ -50,9 +50,26 @@ public class FilmController {
 				model.addAttribute("error", "Invalid search");
 			}
 		} catch (Exception e) {
-			model.addAttribute("error", e.getMessage());
+			model.addAttribute("error", "Oops! Something went wrong.");
+			e.printStackTrace();
 		}
 		return "home";
+	}
+
+	@PostMapping("/create")
+	public String create(Film film, RedirectAttributes redir) {
+		try {
+			if (dao.createFilm(film)) {
+				// dao.createFilm should populate film.id for us
+				return "redirect:/search?id=" + film.getId();
+			} else {
+				throw new Exception("Failed to create film.");
+			}
+		} catch (Exception e) {
+			redir.addFlashAttribute("error", e.getMessage());
+			e.printStackTrace();
+		}
+		return "redirect:/";
 	}
 
 }
