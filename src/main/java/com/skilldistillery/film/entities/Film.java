@@ -1,7 +1,7 @@
 package com.skilldistillery.film.entities;
 
-import java.time.LocalDate;
 import java.sql.Date;
+import java.util.List;
 import java.util.Objects;
 
 public class Film {
@@ -17,6 +17,25 @@ public class Film {
 	private double replacementCost;
 	private Rating rating;
 	private String specialFeatures;
+	private List<Actor> actors;
+	private Category category;
+	
+
+	public List<Actor> getActors() {
+		return actors;
+	}
+
+	public void setActors(List<Actor> actors) {
+		this.actors = actors;
+	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
 
 	public int getId() {
 		return id;
@@ -111,7 +130,7 @@ public class Film {
 		return "Film [id=" + id + ", title=" + title + ", description=" + description + ", releaseYear=" + releaseYear
 				+ ", language=" + language + ", rentalDuration=" + rentalDuration + ", rentalRate=" + rentalRate
 				+ ", length=" + length + ", replacementCost=" + replacementCost + ", rating=" + rating
-				+ ", specialFeatures=" + specialFeatures + "]";
+				+ ", specialFeatures=" + specialFeatures + ", actors=" + actors + ", category=" + category + "]";
 	}
 
 	@Override
