@@ -67,7 +67,6 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 		return true;
 	}
 
-	
 	// category and actor info to select statement and set them
 	@Override
 	public Film getFilmById(int filmId) throws SQLException {
@@ -96,12 +95,12 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 				film.setReplacementCost(rs.getDouble("replacement_cost"));
 				film.setRating(Rating.valueOf(rs.getString("rating")));
 				film.setSpecialFeatures(rs.getString("special_features"));
-				
+
 				Category category = new Category();
 				category.setId(rs.getInt("category_id"));
 				category.setName(rs.getString("category_name"));
 				film.setCategory(category);
-				
+
 				film.setActors(getActorsByFilmId(filmId));
 				return film;
 			}
@@ -113,17 +112,19 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 	@Override
 	public List<Film> getFilmByKeyword(String keyword) throws SQLException {
 		List<Film> films = new ArrayList<>();
+		if (keyword.trim().length() < 1) {
+			films = null;
+			return films;
+		}
 		String sql = "SELECT id FROM film WHERE title LIKE ? OR description LIKE ?";
 		try (Connection conn = DriverManager.getConnection(URL, user, pass);
 				PreparedStatement stmt = conn.prepareStatement(sql)) {
-
 			stmt.setString(1, "%" + keyword + "%");
 			stmt.setString(2, "%" + keyword + "%");
 			ResultSet filmResult = stmt.executeQuery();
 			while (filmResult.next()) {
 				films.add(getFilmById(filmResult.getInt(1)));
 			}
-
 		}
 		return films;
 	}
@@ -178,13 +179,13 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 
 		return true;
 	}
-	
-	private List<Actor> getActorsByFilmId(int filmId) throws SQLException{
+
+	private List<Actor> getActorsByFilmId(int filmId) throws SQLException {
 		List<Actor> actors = new ArrayList<>();
 		String sql = "SELECT id, first_name, last_name FROM actor JOIN film_actor ON actor.id = film_actor.actor_id WHERE film_id = ?";
 		Actor actor = new Actor();
-		try(Connection conn = DriverManager.getConnection(URL, user, pass)){
-			try(PreparedStatement stmt = conn.prepareStatement(sql)){
+		try (Connection conn = DriverManager.getConnection(URL, user, pass)) {
+			try (PreparedStatement stmt = conn.prepareStatement(sql)) {
 				stmt.setInt(1, filmId);
 				ResultSet rs = stmt.executeQuery();
 				while (rs.next()) {
@@ -195,7 +196,7 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 				}
 			}
 		}
-		
+
 		return actors;
 	}
 
