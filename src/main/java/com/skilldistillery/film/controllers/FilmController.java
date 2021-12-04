@@ -1,6 +1,7 @@
 package com.skilldistillery.film.controllers;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,8 +33,8 @@ public class FilmController {
 
 	@GetMapping("searchByKeyword")
 	public String searchByKeyword(Model model, @RequestParam("keyword") String keyword) throws SQLException {
-		Film film = dao.getFilmByKeyword(keyword);
-		model.addAttribute("results", film);
+		List<Film> films = dao.getFilmByKeyword(keyword);
+		model.addAttribute("results", films);
 		return "result";
 	}
 
