@@ -38,7 +38,6 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 
 		try (Connection conn = DriverManager.getConnection(URL, user, pass);
 				PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);) {
-			conn.setAutoCommit(false);
 
 			stmt.setString(1, film.getTitle());
 			stmt.setString(2, film.getDescription());

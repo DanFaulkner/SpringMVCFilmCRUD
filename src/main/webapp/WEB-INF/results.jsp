@@ -89,6 +89,7 @@
 						<td>${result.replacementCost}</td>
 						<td>${result.rating}</td>
 						<td>${result.specialFeatures}</td>
+						<td><a>Delete</a>
 				</c:forEach>
 			</tbody>
 		</table>
