@@ -72,5 +72,23 @@ public class FilmController {
 		}
 		return "redirect:/";
 	}
+	
+	@GetMapping("/delete")
+	public String delete(RedirectAttributes redir, @RequestParam(name = "id")int id) {
+		
+		try {
+			if(dao.deleteFilm(dao.getFilmById(id))) {
+				redir.addFlashAttribute("success", "Film deleted");
+				return "redirect:/";
+			} else {
+				throw new Exception("Cannot delete film.");
+			}
+		} catch (Exception e) {
+			redir.addFlashAttribute("error", e.getMessage());
+			e.printStackTrace();
+		}
+		
+		return "redirect:/";
+	}
 
 }

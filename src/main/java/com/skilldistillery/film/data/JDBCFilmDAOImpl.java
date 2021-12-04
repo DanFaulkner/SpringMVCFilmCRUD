@@ -167,7 +167,7 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 
 	@Override
 	public boolean deleteFilm(Film film) throws SQLException {
-		String sql = "DELETE FROM film WHERE film_id = ?";
+		String sql = "DELETE FROM film WHERE film.id = ?";
 		try (Connection conn = DriverManager.getConnection(URL, user, pass)) {
 			try (PreparedStatement stmt = conn.prepareStatement(sql)) {
 

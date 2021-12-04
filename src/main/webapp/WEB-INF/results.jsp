@@ -55,7 +55,7 @@
 					<td>${result.specialFeatures}</td>
 				</tr>
 				<tr>
-				    <td><a>Delete</a></td>
+				    <td><a href="delete?id=${result.id}">Delete</a></td>
 				    <td></td>
 			</tbody>
 		</table>
@@ -92,7 +92,7 @@
 						<td>${result.replacementCost}</td>
 						<td>${result.rating}</td>
 						<td>${result.specialFeatures}</td>
-						<td><a >Delete</a>
+						<td><a href="delete?id=${result.id}">Delete</a>
 				</c:forEach>
 			</tbody>
 		</table>
