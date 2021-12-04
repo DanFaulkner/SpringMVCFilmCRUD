@@ -10,29 +10,13 @@ public class Film {
 	private String title;
 	private String description;
 	private Date releaseYear;
-	private String language;
+	private Language language;
 	private int rentalDuration;
 	private double rentalRate;
 	private Integer length;
 	private double replacementCost;
 	private Rating rating;
 	private String specialFeatures;
-
-	public Film(int id, String title, String description, Date releaseYear, String language, int rentalDuration,
-			double rentalRate, Integer length, double replacementCost, Rating rating, String specialFeatures) {
-		super();
-		this.id = id;
-		this.title = title;
-		this.description = description;
-		this.releaseYear = releaseYear;
-		this.language = language;
-		this.rentalDuration = rentalDuration;
-		this.rentalRate = rentalRate;
-		this.length = length;
-		this.replacementCost = replacementCost;
-		this.rating = rating;
-		this.specialFeatures = specialFeatures;
-	}
 
 	public int getId() {
 		return id;
@@ -66,11 +50,11 @@ public class Film {
 		this.releaseYear = releaseYear;
 	}
 
-	public String getLanguage() {
+	public Language getLanguage() {
 		return language;
 	}
 
-	public void setLanguage(String language) {
+	public void setLanguage(Language language) {
 		this.language = language;
 	}
 
