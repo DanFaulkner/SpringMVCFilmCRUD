@@ -9,7 +9,7 @@ public class Film {
 	private int id;
 	private String title;
 	private String description;
-	private Date releaseYear;
+	private int releaseYear;
 	private Language language;
 	private int rentalDuration;
 	private double rentalRate;
@@ -19,7 +19,6 @@ public class Film {
 	private String specialFeatures;
 	private List<Actor> actors;
 	private Category category;
-	
 
 	public List<Actor> getActors() {
 		return actors;
@@ -61,11 +60,11 @@ public class Film {
 		this.description = description;
 	}
 
-	public Date getReleaseYear() {
+	public int getReleaseYear() {
 		return releaseYear;
 	}
 
-	public void setReleaseYear(Date releaseYear) {
+	public void setReleaseYear(int releaseYear) {
 		this.releaseYear = releaseYear;
 	}
 

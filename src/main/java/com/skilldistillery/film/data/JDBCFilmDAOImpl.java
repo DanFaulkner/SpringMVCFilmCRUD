@@ -42,7 +42,7 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 
 			stmt.setString(1, film.getTitle());
 			stmt.setString(2, film.getDescription());
-			stmt.setDate(3, film.getReleaseYear());
+			stmt.setInt(3, film.getReleaseYear());
 			stmt.setInt(4, film.getLanguage().getId());
 			stmt.setInt(5, film.getRentalDuration());
 			stmt.setDouble(6, film.getRentalRate());
@@ -82,7 +82,7 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 				film.setId(rs.getInt("id"));
 				film.setTitle(rs.getString("title"));
 				film.setDescription(rs.getString("description"));
-				film.setReleaseYear(rs.getDate("release_year"));
+				film.setReleaseYear(rs.getInt("release_year"));
 
 				Language language = new Language();
 				language.setId(rs.getInt("language_id"));
@@ -138,7 +138,7 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 				conn.setAutoCommit(false);
 				stmt.setString(1, film.getTitle());
 				stmt.setString(2, film.getDescription());
-				stmt.setDate(3, film.getReleaseYear());
+				stmt.setInt(3, film.getReleaseYear());
 				stmt.setInt(4, film.getLanguage().getId());
 				stmt.setInt(5, film.getRentalDuration());
 				stmt.setDouble(6, film.getRentalRate());

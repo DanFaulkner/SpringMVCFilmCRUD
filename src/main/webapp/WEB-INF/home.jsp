@@ -72,7 +72,7 @@
 											</tr>
 											<tr>
 												<td>Release Year</td>
-												<td><input name="releaseYear" type="date" /></td>
+												<td><input name="releaseYear" type="number" value="2021" /></td>
 											</tr>
 											<tr>
 												<td>Language</td>
