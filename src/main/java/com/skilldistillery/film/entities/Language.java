@@ -45,5 +45,4 @@ public class Language {
 		Language other = (Language) obj;
 		return id == other.id && Objects.equals(name, other.name);
 	}
-
 }
