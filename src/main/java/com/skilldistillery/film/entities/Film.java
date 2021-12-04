@@ -14,11 +14,11 @@ public class Film {
 	private double rentalRate;
 	private Integer length;
 	private double replacementCost;
-	private String rating;
+	private Rating rating;
 	private String specialFeatures;
 
 	public Film(int id, String title, String description, LocalDate releaseYear, String language, int rentalDuration,
-			double rentalRate, Integer length, double replacementCost, String rating, String specialFeatures) {
+			double rentalRate, Integer length, double replacementCost, Rating rating, String specialFeatures) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -105,11 +105,11 @@ public class Film {
 		this.replacementCost = replacementCost;
 	}
 
-	public String getRating() {
+	public Rating getRating() {
 		return rating;
 	}
 
-	public void setRating(String rating) {
+	public void setRating(Rating rating) {
 		this.rating = rating;
 	}
 
