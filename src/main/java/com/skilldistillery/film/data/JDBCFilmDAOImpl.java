@@ -190,12 +190,12 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 	private List<Actor> getActorsByFilmId(int filmId) throws SQLException {
 		List<Actor> actors = new ArrayList<>();
 		String sql = "SELECT id, first_name, last_name FROM actor JOIN film_actor ON actor.id = film_actor.actor_id WHERE film_id = ?";
-		Actor actor = new Actor();
 		try (Connection conn = DriverManager.getConnection(URL, user, pass)) {
 			try (PreparedStatement stmt = conn.prepareStatement(sql)) {
 				stmt.setInt(1, filmId);
 				ResultSet rs = stmt.executeQuery();
 				while (rs.next()) {
+					Actor actor = new Actor();
 					actor.setId(rs.getInt("id"));
 					actor.setFirstName(rs.getString("first_name"));
 					actor.setLastName(rs.getString("last_name"));

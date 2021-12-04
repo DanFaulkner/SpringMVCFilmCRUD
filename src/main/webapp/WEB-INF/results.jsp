@@ -56,7 +56,7 @@
 				</tr>
 				<tr>
 				    <td><a href="delete?id=${result.id}">Delete</a></td>
-				    <td></td>
+				    <td><a href="update?id=${result.id}">Update</a></td>
 			</tbody>
 		</table>
 		<hr>
@@ -93,6 +93,7 @@
 						<td>${result.rating}</td>
 						<td>${result.specialFeatures}</td>
 						<td><a href="delete?id=${result.id}">Delete</a>
+						<td><a href="update?id=${result.id}">Update</a></td>
 				</c:forEach>
 			</tbody>
 		</table>

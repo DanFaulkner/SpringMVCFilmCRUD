@@ -72,12 +72,12 @@ public class FilmController {
 		}
 		return "redirect:/";
 	}
-	
+
 	@GetMapping("/delete")
-	public String delete(RedirectAttributes redir, @RequestParam(name = "id")int id) {
-		
+	public String delete(RedirectAttributes redir, @RequestParam(name = "id") int id) {
+
 		try {
-			if(dao.deleteFilm(dao.getFilmById(id))) {
+			if (dao.deleteFilm(dao.getFilmById(id))) {
 				redir.addFlashAttribute("success", "Film deleted");
 				return "redirect:/";
 			} else {
@@ -87,8 +87,19 @@ public class FilmController {
 			redir.addFlashAttribute("error", e.getMessage());
 			e.printStackTrace();
 		}
-		
+
 		return "redirect:/";
+	}
+
+	@GetMapping("/update")
+	public String update(@RequestParam(name = "id") int id) {
+		
+	  try {	
+		dao.updateFilm(dao.getFilmById(id));
+	       } catch (Exception e) {
+	    	   e.printStackTrace();
+	       }
+		return "update";
 	}
 
 }
