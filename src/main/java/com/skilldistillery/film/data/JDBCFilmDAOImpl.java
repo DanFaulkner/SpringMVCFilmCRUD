@@ -35,7 +35,6 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 	@Override
 	public boolean createFilm(Film film) throws SQLException {
 		Connection conn;
-		try {
 			conn = DriverManager.getConnection(URL, user, pass);
 			conn.setAutoCommit(false);
 			String sql = "INSERT INTO film (title, description, release_year, language_id, rental_duration, rental_rate, length, replacement_cost, rating, special_features) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -185,12 +184,5 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 		return true;
 	}
 	
-	
-	//grab the langauge ID to use to set the language in the create film method
-	private int getLanguageId(String language) {
-		int langId = 0;
-		String sql = "SELECT id FROM language WHERE "
-		return langId;
-	}
 
 }
