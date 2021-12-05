@@ -92,13 +92,13 @@ public class FilmController {
 	}
 
 	@GetMapping("/update")
-	public String update(@RequestParam(name = "id") int id) {
-		
-	  try {	
-		dao.updateFilm(dao.getFilmById(id));
-	       } catch (Exception e) {
-	    	   e.printStackTrace();
-	       }
+	public String update(Model model, @RequestParam(name = "id") int id) {
+		try {
+			Film film = dao.getFilmById(id);
+			model.addAttribute("film", film);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return "update";
 	}
 
