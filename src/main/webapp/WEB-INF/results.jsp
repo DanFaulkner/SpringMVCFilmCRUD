@@ -60,11 +60,19 @@
 				</tr>
 				<tr>
 					<td>Actors</td>
-					<td>${result.getActorsString()}</td>
+					<td>
+						<table class="table">
+							<c:forEach items="${result.actors}" var="actor">
+								<tr>
+									<td>${actor.firstName} ${actor.lastName}</td>
+								</tr>
+							</c:forEach>
+						</table>
+					</td>
 				</tr>
 				<tr>
 					<td><a href="delete?id=${result.id}">Delete</a></td>
-					<td></td>
+					<td><a href="update?id=${result.id}">Update</a></td>
 				</tr>
 			</tbody>
 		</table>
@@ -105,8 +113,17 @@
 						<td>${result.replacementCost}</td>
 						<td>${result.rating}</td>
 						<td>${result.specialFeatures}</td>
-						<td>${result.getActorsString()}</td>
+						<td>
+							<table class="table">
+								<c:forEach items="${result.actors}" var="actor">
+									<tr>
+										<td>${actor.firstName} ${actor.lastName}</td>
+									</tr>
+								</c:forEach>
+							</table>
+						</td>
 						<td><a href="delete?id=${result.id}">Delete</a>
+						<td><a href="update?id=${result.id}">Update</a></td>
 				</c:forEach>
 			</tbody>
 		</table>
