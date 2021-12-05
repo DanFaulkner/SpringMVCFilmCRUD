@@ -11,7 +11,7 @@
 		<form action="update" method="post">
 			<tr>
 				<td>ID</td>
-				<td>${film.id}</td>
+				<td><input value="${film.id}" readonly name="id"/> </td>
 			</tr>
 			<tr>
 				<td>Title</td>
