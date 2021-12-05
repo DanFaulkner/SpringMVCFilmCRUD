@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<jsp:include page="home.jsp" />
 <table class="table table-striped">
 	<thead>
 		<tr>
@@ -11,7 +12,7 @@
 		<form action="update" method="post">
 			<tr>
 				<td>ID</td>
-				<td><input value="${film.id}" readonly name="id"/> </td>
+				<td><input value="${film.id}" readonly name="id" /></td>
 			</tr>
 			<tr>
 				<td>Title</td>
