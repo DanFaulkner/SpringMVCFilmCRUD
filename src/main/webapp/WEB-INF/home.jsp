@@ -5,7 +5,7 @@
 
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-3">
+		<div class="col-2">
 			<div id="accordion">
 				<div class="card">
 					<div class="card-header" id="headingOne">
@@ -29,15 +29,15 @@
 									<tr>
 										<form action="search">
 											<td>ID</td>
-											<td><input name="id" type="number" /></td>
-											<td><input type="submit" /></td>
+											<td><input class="form-control" name="id" type="number" /></td>
+											<td><input class="btn btn-primary" type="submit" /></td>
 										</form>
 									</tr>
 									<tr>
 										<form action="search">
 											<td>Keyword</td>
-											<td><input name="keyword" type="text" /></td>
-											<td><input type="submit" /></td>
+											<td><input class="form-control" name="keyword" /></td>
+											<td><input class="btn btn-primary" type="submit" /></td>
 										</form>
 									</tr>
 								</tbody>
