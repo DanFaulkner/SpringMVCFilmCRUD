@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:choose>
 	<c:when test="${result != null }">
-		<table class="table table-striped">
+		<table class="table table-striped table-sm">
 			<thead>
 				<tr>
 					<th>Field</th>
@@ -61,10 +61,10 @@
 				<tr>
 					<td>Actors</td>
 					<td>
-						<table class="table">
+						<table class="table table-sm">
 							<c:forEach items="${result.actors}" var="actor">
 								<tr>
-									<td>${actor.firstName} ${actor.lastName}</td>
+									<td>${actor.firstName}${actor.lastName}</td>
 								</tr>
 							</c:forEach>
 						</table>
@@ -79,7 +79,7 @@
 		<hr>
 	</c:when>
 	<c:when test="${results != null }">
-		<table class="table table-striped">
+		<table class="table table-striped table-sm">
 			<thead>
 				<tr>
 					<th>ID</th>
@@ -94,7 +94,7 @@
 					<th>Replacement Cost</th>
 					<th>Rating</th>
 					<th>Special Features</th>
-					<th>Actors</th>
+					<th></th>
 					<th></th>
 				</tr>
 			</thead>
@@ -114,16 +114,27 @@
 						<td>${result.rating}</td>
 						<td>${result.specialFeatures}</td>
 						<td>
-							<table class="table">
-								<c:forEach items="${result.actors}" var="actor">
-									<tr>
-										<td>${actor.firstName} ${actor.lastName}</td>
-									</tr>
-								</c:forEach>
-							</table>
+							<div class="dropdown">
+								<button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+									aria-haspopup="true" aria-expanded="false">Actors</button>
+								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+									<c:forEach items="${result.actors}" var="actor">
+										<a class="dropdown-item" href="#">${actor.fullName}</a>
+									</c:forEach>
+								</div>
+							</div>
 						</td>
-						<td><a href="delete?id=${result.id}">Delete</a>
-						<td><a href="update?id=${result.id}">Update</a></td>
+						<td>
+							<div class="dropdown">
+								<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+									aria-haspopup="true" aria-expanded="false">Actions</button>
+								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+									<a class="dropdown-item" href="update?id=${result.id}">Update</a> <a class="dropdown-item"
+										href="delete?id=${result.id}">Delete</a>
+								</div>
+							</div>
+						</td>
+					</tr>
 				</c:forEach>
 			</tbody>
 		</table>

@@ -17,7 +17,7 @@
 
 					<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
 						<div class="card-body">
-							<table id="search-by" class="table">
+							<table id="search-by" class="table table-sm">
 								<thead>
 									<tr>
 										<th>Field</th>
@@ -53,7 +53,7 @@
 						</div>
 						<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
 							<div class="card-body">
-								<table id="create-film" class="table">
+								<table id="create-film" class="table table-sm">
 									<thead>
 										<tr>
 											<th>Field</th>
@@ -164,8 +164,7 @@
 											<td>Special Features</td>
 											<td>
 												<div>
-													<input type="checkbox" name="specialFeatures[]" id="op1" value="Trailers" /> <label for="op1">Send
-														me newsletter</label>
+													<input type="checkbox" name="specialFeatures[]" id="op1" value="Trailers" /> <label for="op1">Trailers</label>
 												</div>
 												<div>
 													<input type="checkbox" name="specialFeatures[]" id="op2" value="Commentaries" /> <label for="op2">Commentaries</label>
