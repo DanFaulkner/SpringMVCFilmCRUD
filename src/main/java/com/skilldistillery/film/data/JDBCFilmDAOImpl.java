@@ -78,7 +78,6 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 				+ "LEFT JOIN category c ON fc.category_id = c.id " //
 				+ "WHERE film.id = ?";
 
-
 		try (Connection conn = DriverManager.getConnection(URL, user, pass);
 				PreparedStatement stmt = conn.prepareStatement(sql)) {
 			stmt.setInt(1, filmId);
@@ -154,8 +153,10 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 				stmt.setString(9, film.getRating().toString());
 				stmt.setString(10, film.getSpecialFeatures());
 				stmt.setInt(11, film.getId());
-
-				stmt.executeUpdate();
+				conn.getTransactionIsolation();
+				if (stmt.executeUpdate() == 0) {
+					return false;
+				}
 				conn.commit();
 			} catch (SQLException e) {
 				conn.rollback();

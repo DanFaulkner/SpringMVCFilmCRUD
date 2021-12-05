@@ -101,5 +101,22 @@ public class FilmController {
 		}
 		return "update";
 	}
+	
+	@PostMapping("/update")
+	public String updateInDB(Film film , RedirectAttributes redir) {
+		try {
+			if(dao.updateFilm(film)) {
+				redir.addFlashAttribute("success", "Film updated!");
+				return "redirect:/";
+			}else {
+				throw new Exception("Failed to update film");
+			}
+			
+		}catch (Exception e) {
+			redir.addFlashAttribute("error", e.getMessage() + ": " + film.toString());
+			e.printStackTrace();
+		}
+		return "redirect:/";
+	}
 
 }
