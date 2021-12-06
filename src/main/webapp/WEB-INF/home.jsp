@@ -213,5 +213,5 @@
 </div>
 <!-- end of container-fluid -->
 
-
 <jsp:include page="footer.jsp"></jsp:include>
+

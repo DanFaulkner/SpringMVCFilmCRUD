@@ -95,11 +95,11 @@ public class FilmController {
 	public String update(Model model, @RequestParam(name = "id") int id) {
 		try {
 			Film film = dao.getFilmById(id);
-			model.addAttribute("film", film);
+			model.addAttribute("update", film);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "update";
+		return "home";
 	}
 
 	@PostMapping("/update")
