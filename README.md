@@ -3,7 +3,7 @@
 # Description
 
 SpringMVCFilmCRUD is a simple webserver giving access to a database containing film information. It allows the user to
-create, read, update, and delete film data and keep those changes persistent in a database.
+create, read, update, and delete film data while keeping those changes persistent in a database.
 
 # Lessons Learned
 
